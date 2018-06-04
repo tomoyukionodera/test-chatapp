@@ -22,14 +22,14 @@
     <script src="/socket.io/socket.io.js"></script>
     <script src="https://code.jquery.com/jquery-3.1.1.slim.js"   integrity="sha256-5i/mQ300M779N2OVDrl16lbohwXNUdzL/R2aVUXyXWA="   crossorigin="anonymous"></script>
     <script>
-      const socket = io();
+      const socket = io(); //socketへの接続
       $('form').submit(() => {
-        socket.emit('chat message', $('#m').val());
-        $('#m').val('');
+        socket.emit('chat message', $('#m').val()); //「chat message」イベント発行　//取得
+        $('#m').val('');　//空白にする
         return false;
       });
       socket.on('chat message', (msg) => {
-          $('#messages').append($('<li>').text(msg));
+          $('#messages').append($('<li>').text(msg)); //jqueryでメッセージを追加
       });
     </script>
   </body>
